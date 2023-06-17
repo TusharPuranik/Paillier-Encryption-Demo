@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homomorphic Encryption Demo - Take a Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .container {
+            margin: 20px auto;
+            width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #f2f2f2;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            margin-top: 0;
+        }
+
+        .container p {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #f2f2f2;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            text-align: left; /* Align results to the left */
+        }
+
+        .result pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Homomorphic Encryption Demo</h1>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Take a Demo</h2>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="{{ url_for('demo') }}">
+            <div class="form-group">
+                <label for="number1">Number 1:</label>
+                <input type="text" id="number1" name="number1" required>
+            </div>
+            <div class="form-group">
+                <label for="number2">Number 2:</label>
+                <input type="text" id="number2" name="number2" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Perform Operations">
+            </div>
+        </form>
+        {% if result_text %}
+            <div class="result">
+                <pre>{{ result_text }}</pre>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

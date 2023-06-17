@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homomorphic Encryption Demo - Efficiency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .container {
+            margin: 20px auto;
+            width: 1100px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #f2f2f2;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            margin-top: 0;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            text-align: left; /* Align results to the left */
+        }
+
+        .result pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Homomorphic Encryption Demo</h1>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+        </ul>
+    </div>    
+    <div class="container">
+        <h2>Efficiency</h2>
+        <form method="POST" action="{{ url_for('compute_efficiency') }}">
+            <label for="num_iterations">Number of Iterations:</label>
+            <input type="number" id="num_iterations" name="num_iterations" required><br><br>
+
+            <label for="entry_a">Value for A:</label>
+            <input type="number" id="entry_a" name="entry_a" required><br><br>
+
+            <label for="entry_b">Value for B:</label>
+            <input type="number" id="entry_b" name="entry_b" required><br><br>
+
+            <input type="submit" value="Compute Efficiency">
+        </form>
+    </div>
+</body>
+</html>

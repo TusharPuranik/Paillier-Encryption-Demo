@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homomorphic Encryption Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .container {
+            margin: 20px auto;
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #f2f2f2;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            margin-top: 0;
+        }
+
+        .container p {
+            margin-bottom: 20px;
+        }
+
+        .signup-button {
+            text-align: center;
+        }
+
+        .signup-button a {
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Homomorphic Encryption Demo</h1>
+    </div>
+    <div class="navbar">
+        <ul>
+            {% if 'username' in session %}
+                <li><a href="{{ url_for('demo') }}">Take a Demo</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Welcome to Homomorphic Encryption Demo</h2>
+        <p>
+            Homomorphic encryption is a form of encryption that allows computations to be performed on encrypted data without
+            decrypting it. This provides a high level of security and privacy for sensitive data processing.
+        </p>
+        <p>
+            This demo showcases the concept of homomorphic encryption by performing addition and multiplication operations on
+            encrypted data and obtaining the results.
+        </p>
+        {% if 'username' not in session %}
+            <div class="signup-button">
+                <a href="{{ url_for('signup') }}">Sign Up</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
